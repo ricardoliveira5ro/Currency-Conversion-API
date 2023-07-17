@@ -1,0 +1,21 @@
+{
+  "name": "twitter-insights-api",
+  "version": "1.0.0",
+  "description": "The Twitter Insights API is a tool that interacts with Twitter to provide valuable statistics based on a received input, which can be a tweet or a user profile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js"
+  },
+  "keywords": [
+    "Twitter",
+    "Insights",
+    "API"
+  ],
+  "author": "Ricardo Oliveira",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
