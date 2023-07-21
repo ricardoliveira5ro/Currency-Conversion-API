@@ -1,14 +1,14 @@
 {
-  "name": "twitter-insights-api",
+  "name": "instagram-insights-api",
   "version": "1.0.0",
-  "description": "The Twitter Insights API is a tool that interacts with Twitter to provide valuable statistics based on a received input, which can be a tweet or a user profile",
+  "description": "The Instagram Insights API is a tool that interacts with Instagram to provide valuable statistics based on a received input, which can be a post or a user profile",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./server.js"
   },
   "keywords": [
-    "Twitter",
+    "Instagram",
     "Insights",
     "API"
   ],

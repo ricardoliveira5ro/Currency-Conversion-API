@@ -1,1 +1,1 @@
-# Twitter-Insights-API
+# Instagram-Insights-API
