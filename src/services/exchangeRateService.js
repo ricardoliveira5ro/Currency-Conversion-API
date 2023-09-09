@@ -1,24 +1,24 @@
 const axios = require('axios');
+const currencyDetails = require('../data/currencyDetails');
 
-const ENDPOINT = 'https://api.frankfurter.app/currencies'
+const ENDPOINT = 'https://api.frankfurter.app/currencies';
 
 const getCurrencies = async () => {
     try {
-        //const data = null; 
-        
-        axios.get(ENDPOINT).then((response) => {
-            return response.data
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+        const response = await axios.get(ENDPOINT);
+        return response.data;
 
-        return {};
-    } catch (e) {
-        throw new Error(e.message)
+    } catch (error) {
+        throw new Error(error.message);
     }
 }
 
+const getCurrencyByCode = async (code) => {
+    if (currencyDetails[code])
+        return currencyDetails[code];
+    return {};
+}
+
 module.exports = {
-    getCurrencies
+    getCurrencies, getCurrencyByCode
 }
