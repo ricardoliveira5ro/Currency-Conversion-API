@@ -11,6 +11,24 @@ const getCurrencies = async () => {
     }
 }
 
+const getRealTimeRatesDefault = async () => {
+    try {
+        return response = await axios.get(FRANKFURTER_API + '/latest');
+
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
+
+const getRealTimeRates = async (code) => {
+    try {
+        return response = await axios.get(FRANKFURTER_API + '/latest?from=' + code);
+
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
+
 module.exports = {
-    getCurrencies
+    getCurrencies, getRealTimeRatesDefault, getRealTimeRates
 }
