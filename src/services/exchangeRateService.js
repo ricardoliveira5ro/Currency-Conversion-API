@@ -1,16 +1,9 @@
-const axios = require('axios');
+const thirdPartyService = require('./thirdPartyService');
 const currencyDetails = require('../data/currencyDetails');
 
-const ENDPOINT = 'https://api.frankfurter.app/currencies';
-
 const getCurrencies = async () => {
-    try {
-        const response = await axios.get(ENDPOINT);
-        return response.data;
-
-    } catch (error) {
-        throw new Error(error.message);
-    }
+    const response = await thirdPartyService.getCurrencies();
+    return response.data;
 }
 
 const getCurrencyByCode = async (code) => {
