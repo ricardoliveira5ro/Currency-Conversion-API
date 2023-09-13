@@ -16,7 +16,7 @@ const getCurrencyByCode = async (req, res) => {
         const currency = await exchangeRateService.getCurrencyByCode(code);
         
         if (Object.keys(currency).length === 0) {
-            res.status(404).json({ error: `Currency with code '${code}' not found` });
+            res.status(404).json({ error: `Currency with code '${code}' not supported` });
         } else {
             res.status(200).json(currency);
         }
