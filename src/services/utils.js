@@ -1,14 +1,18 @@
 const realTimeRatesConvertObj = (obj) => {
     realTimeRatesObj = {
-        'Amount' : obj.amount,
-        'Base-Currency' : obj.base,
-        'Last-Updated' : obj.date,
-        'Rates' : obj.rates
+        'amount' : obj.amount,
+        'baseCurrency' : obj.base,
+        'lastUpdated' : obj.date,
+        'rates' : obj.rates
     };
 
     return realTimeRatesObj
 }
 
+const isPlainNumber = (value) => {
+    return /^\d+(\.\d+)?$/.test(value);
+};
+
 module.exports = {
-    realTimeRatesConvertObj
+    realTimeRatesConvertObj, isPlainNumber
 }

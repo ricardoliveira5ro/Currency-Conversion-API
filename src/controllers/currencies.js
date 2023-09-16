@@ -10,10 +10,10 @@ const getCurrencies = async (req, res) => {
     }
 }
 
-const getCurrencyByCode = async (req, res) => {
+const getCurrencyByCode = (req, res) => {
     try {
         const code = req.params.code;
-        const currency = await exchangeRateService.getCurrencyByCode(code);
+        const currency = exchangeRateService.getCurrencyByCode(code);
         
         if (Object.keys(currency).length === 0) {
             res.status(404).json({ error: `Currency with code '${code}' not supported` });
