@@ -10,7 +10,7 @@ router.get('/currencies/:code', currenciesController.getCurrencyByCode);
 router.get('/real-time-rates', realTimeRatesController.getRealTimeRatesDefault);
 router.get('/real-time-rates/:code', realTimeRatesController.getRealTimeRates);
 
-router.get('/convert', convertController.convert)
+router.post('/convert', convertController.convert);
+router.post('/convert-batch', convertController.convertBatch);
 
 module.exports = router;
-

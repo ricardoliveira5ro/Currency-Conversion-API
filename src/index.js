@@ -6,6 +6,8 @@ const globalErrorHandler = require('./middleware/globalErrorHandler')
 
 const app = express();
 
+app.use(bodyParser.json());
+
 app.use(logger);
 
 app.use('/', require('./routes/routes'));

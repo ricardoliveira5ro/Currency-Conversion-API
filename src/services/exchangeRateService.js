@@ -49,6 +49,36 @@ const convert = async (baseCurrency, targetCurrency, amount) => {
     };
 }
 
+const convertBatch = async (batch) => {
+    const results = [];
+
+    for(const conversion of batch) {
+        const { baseCurrency, targetCurrency, amount } = conversion;
+
+        if (Object.keys(getCurrencyByCode(baseCurrency)).length === 0) {
+            throw new Error(`Base currency with code '${baseCurrency}' not supported`);
+        }
+    
+        if (Object.keys(getCurrencyByCode(targetCurrency)).length === 0) {
+            throw new Error(`Targert currency with code '${targetCurrency}' not supported`);
+        }
+
+        if (!utils.isPlainNumber(amount)) {
+            throw new Error('Amount should be a valid number');
+        }
+
+        if (amount <= 0) {
+            res.status(400).json({ error: 'Invalid request. Amount should be greater than 0' });
+            return;
+        }
+
+        const response = await convert(baseCurrency, targetCurrency, amount);
+        results.push(response);
+    }
+
+    return results;
+}
+
 module.exports = {
-    getCurrencies, getCurrencyByCode, getRealTimeRatesDefault, getRealTimeRates, convert
+    getCurrencies, getCurrencyByCode, getRealTimeRatesDefault, getRealTimeRates, convert, convertBatch
 }
