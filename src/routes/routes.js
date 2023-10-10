@@ -4,6 +4,17 @@ const currenciesController = require('../controllers/currencies');
 const realTimeRatesController = require('../controllers/realTimeRates');
 const convertController = require('../controllers/convert');
 
+router.get('/', (req, res) => {
+    const apiInfo = {
+      name: 'Currency Conversion API',
+      version: '1.0.0',
+      description: 'A RESTful API for currency conversion',
+      author: 'Ricardo Oliveira',
+    };
+  
+    res.status(200).json(apiInfo);
+});
+
 router.get('/currencies', currenciesController.getCurrencies);
 router.get('/currencies/:code', currenciesController.getCurrencyByCode);
 
