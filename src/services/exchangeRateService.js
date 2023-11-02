@@ -36,6 +36,16 @@ const convert = async (baseCurrency, targetCurrency, amount) => {
     if (Object.keys(getCurrencyByCode(targetCurrency)).length === 0) {
         throw new Error(`Targert currency with code '${targetCurrency}' not supported`);
     }
+
+    if (baseCurrency === targetCurrency)
+        return {
+            baseCurrency,
+            targetCurrency,
+            exchangeRate: 1,
+            amount,
+            lastUpdated: new Date().toISOString().split('T')[0],
+        };
+
     const exchangeRate = baseCurrencyRate.rates[targetCurrency];
     const convertedAmount = amount * exchangeRate;
     const lastUpdated = baseCurrencyRate.lastUpdated;
