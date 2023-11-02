@@ -42,7 +42,7 @@ const convert = async (baseCurrency, targetCurrency, amount) => {
             baseCurrency,
             targetCurrency,
             exchangeRate: 1,
-            amount,
+            convertedAmount: amount,
             lastUpdated: new Date().toISOString().split('T')[0],
         };
 
